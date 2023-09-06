@@ -1,0 +1,112 @@
+﻿@page "/Employees"
+
+@using Project_with_Login.Data
+@inject EmployeeService employeesService
+@inject IJSRuntime js
+
+<AuthorizeView>
+    <Authorized>
+
+<NavLink class="nav-link" href="AddNewEmployee">
+    <span class="oi oi-plus" aria-hidden="true">Add New Employee</span>
+
+</NavLink>
+<h3>EmployeeList</h3>
+
+@if (EmpObj is null)
+{
+    <p><em>Loading................</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Emp No
+                </th>
+                <th>
+                    Employee Name
+                </th>
+                <th>
+                    Email Address
+                </th>
+                <th>
+                    Designation
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Edit
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in EmpObj)
+            {
+                <tr>
+                    <td>
+                        @emp.Id
+                    </td>
+                    <td>
+                        @emp.FullName
+                    </td>
+                    <td>
+                        @emp.EmailAddress
+                    </td>
+                    <td>
+                        @emp.Designation
+                    </td>
+                    <td>
+                        @emp.PhoneNumber
+                    </td>
+                    <td>
+                        <a class="nav-link btn btn-primary" href="EditEmployee/@emp.Id">
+                            <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="nav-link btn btn-danger" href="DeleteEmployee/@emp.Id">
+                            <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+<a href="#" class="btn btn-primary" @onclick="@(p => ClickCreateFile(1, "firstpage.pdf"))">Download</a>
+<button type="button" class="btn btn-warning" @onclick="@(p => ClickOpenNewTab(1, "text.pdf"))">NewTab</button>
+
+@code {
+   
+    List<Employee> EmpObj;
+    protected override async Task OnInitializedAsync()
+    {
+
+        EmpObj = await Task.Run(() => employeesService.GetAllEmployees());
+    }
+
+    private void ClickCreateFile(int pagetype, string filename)
+    {
+        var pdf = new Project_with_Login.PDF.Report();
+        pdf.Generate(js, pagetype, filename);
+    }
+
+
+
+    private void ClickOpenNewTab(int pagetype, string filename)
+    {
+        var pdf = new Project_with_Login.PDF.Report();
+        pdf.OpenNewTab(js, pagetype, filename);
+    }
+
+}
+</Authorized>
+</AuthorizeView>

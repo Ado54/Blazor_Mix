@@ -1,0 +1,97 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Project_with_Login.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Project_with_Login.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\images\\background.jpg",
+      "PackagePath": "staticwebassets\\images\\background.jpg"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\images\\bck.png",
+      "PackagePath": "staticwebassets\\images\\bck.png"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\images\\index_bg.jpg",
+      "PackagePath": "staticwebassets\\images\\index_bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\images\\user_login.png",
+      "PackagePath": "staticwebassets\\images\\user_login.png"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\js\\pdfAction.js",
+      "PackagePath": "staticwebassets\\js\\pdfAction.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Project_with_Login.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Project_with_Login.props",
+      "PackagePath": "build\\Project_with_Login.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Project_with_Login.props",
+      "PackagePath": "buildMultiTargeting\\Project_with_Login.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Project_with_Login.props",
+      "PackagePath": "buildTransitive\\Project_with_Login.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

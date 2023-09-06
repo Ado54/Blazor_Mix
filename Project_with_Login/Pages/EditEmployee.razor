@@ -1,0 +1,87 @@
+﻿@page "/EditEmployee/{Id}"
+
+<AuthorizeView>
+    <Authorized>
+
+@using Project_with_Login.Data
+@inject EmployeeService employeeService
+@inject NavigationManager NavigationManager
+
+<h2>Edit Employee</h2>
+<hr />
+
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Id" class="control-label">Employee Id</label>
+                <input form="Id" class="form-control" @bind="@obj.Id" />
+            </div>
+            <div class="for-group">
+                <label for="FirstName" class="control-label">First Name</label>
+                <input form="First Name" class="form-control" @bind="@obj.FirstName" />
+            </div>
+            <div class="for-group">
+                <label for="MiddleName" class="control-label">Middle Name</label>
+                <input form="Middle Name" class="form-control" @bind="@obj.MiddleName" />
+            </div>
+            <div class="for-group">
+                <label for="LastName" class="control-label">Last Name</label>
+                <input form="Last Name" class="form-control" @bind="@obj.LastName" />
+            </div>
+            <div class="for-group">
+                <label for="Email" class="control-label">Email</label>
+                <input form="Email" class="form-control" @bind="@obj.EmailAddress" />
+            </div>
+            <div class="for-group">
+                <label for="PhoneNumber" class="control-label">Phone Number</label>
+                <input form="PhoneNumber" class="form-control" @bind="@obj.PhoneNumber" />
+            </div>
+            <div class="for-group">
+                <label for="PostalCode" class="control-label">Postal Code</label>
+                <input form="PostalCode" class="form-control" @bind="@obj.PostalCode" />
+            </div>
+            <div class="for-group">
+                <label for="Address" class="control-label">Address</label>
+                <input form="Address" class="form-control" @bind="@obj.Address" />
+            </div>
+            <div class="for-group">
+                <label for="City" class="control-label">City</label>
+                <input form="City" class="form-control" @bind="@obj.City" />
+            </div>
+            <div class="for-group">
+                <label for="Designation" class="control-label">Designation</label>
+                <input form="Designation" class="form-control" @bind="@obj.Designation" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@UpdateEmployee" value="Update" />
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    Employee obj = new Employee();
+    protected override async Task OnInitializedAsync()
+    {
+        obj = await Task.Run(() => employeeService.GetEmployeeById(Convert.ToInt32(Id)));
+    }
+    protected async void UpdateEmployee()
+    {
+        await employeeService.UpdateEmployeeDetails(obj);
+        NavigationManager.NavigateTo("Employees");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("Employees");
+    }
+}
+</Authorized>
+</AuthorizeView>

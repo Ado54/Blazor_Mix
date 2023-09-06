@@ -1,0 +1,12 @@
+﻿@page "/page1"
+
+<h3>FirstPage</h3>
+<input type="number" @bind="age" />
+<a href="/page2/@age.ToString()">
+    <button> Go to Page 2 </button>
+</a>
+
+@code {
+    int age = 0;
+
+}

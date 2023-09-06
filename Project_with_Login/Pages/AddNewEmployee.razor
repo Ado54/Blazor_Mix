@@ -1,0 +1,92 @@
+﻿@page "/AddNewEmployee"
+@using System.ComponentModel.DataAnnotations
+@using Project_with_Login.Data
+@inject EmployeeService employeeService
+@inject NavigationManager NavigationManager
+
+<h3>Add New Employee</h3>
+<hr />
+
+<EditForm Model="model">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="for-group">
+                <label for="FirstName" class="control-label">First Name</label>
+                <InputText class="form-control" placeholder="First Name" @bind-Value="@obj.FirstName" />
+                <ValidationMessage For="() => obj.FirstName" />
+            </div>
+            <div class="for-group">
+                <label for="MiddleName" class="control-label">Middle Name</label>
+                <InputText for="Middle Name" class="form-control" placeholder="Middle Name" @bind-Value="@obj.MiddleName" />
+                <ValidationMessage For="() => obj.MiddleName" />
+            </div>
+            <div class="for-group">
+                <label for="LastName" class="control-label">Last Name</label>
+                <InputText placeholder="LastName" for="Last Name" class="form-control" @bind-Value="@obj.LastName" />
+                <ValidationMessage For="() => obj.LastName" />
+            </div>
+            <div class="for-group">
+                <label for="Email" class="control-label">Email</label>
+                <InputText placeholder="Email" for="Email" class="form-control" @bind-Value="@obj.EmailAddress" />
+                <ValidationMessage For="() => obj.PhoneNumber" />
+            </div>
+            <div class="for-group">
+                <label for="PhoneNumber" class="control-label">Phone Number</label>
+                <InputText placeholder="PhoneNumber" for="PhoneNumber" class="form-control" @bind-Value="@obj.PhoneNumber" />
+                <ValidationMessage For="() => obj.PhoneNumber" />
+            </div>
+            <div class="for-group">
+                <label for="PostalCode" class="control-label">Postal Code</label>
+                <InputText placeholder="PostalCode" for="PostalCode" class="form-control" @bind-Value="@obj.PostalCode" />
+            </div>
+            <div class="for-group">
+                <label for="Address" class="control-label">Address</label>
+                <InputText placeholder="Address" for="Address" class="form-control" @bind-Value="@obj.Address" />
+            </div>
+            <div class="for-group">
+                <label for="City" class="control-label">City</label>
+                <InputText placeholder="City" for="City" class="form-control" @bind-Value="@obj.City" />
+            </div>
+            <div class="for-group">
+                <label for="Designation" class="control-label">Designation</label>
+                <InputText placeholder="Designation" for="Designation" class="form-control" @bind-Value="@obj.Designation" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+
+
+                <input type="submit" class="btn btn-primary" @onsubmit="@CreateNewEmployee" value="Save Employee" />
+                <input type="button" class="btn btn-danger" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    Employee obj = new Employee();
+ 
+    Employee model = new();
+
+   
+    protected async void CreateNewEmployee()
+    {
+
+        await employeeService.AddNeEmployee(obj);
+        NavigationManager.NavigateTo("Employees");
+    }
+    protected async void Cancel()
+    {
+        NavigationManager.NavigateTo("Employees");
+    }
+
+    
+}
+
+
+
+

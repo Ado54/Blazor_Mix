@@ -15,12 +15,12 @@
 
 @if (EmpObj is null)
 {
-    <p><em>Loading................</em></p>
+    <p><em>Loading..............</em></p>
 }
 else
 {
             <input class="form-control hideWhenPrint" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
-
+ 
     <table class="table">
         <thead>
             <tr>
@@ -110,7 +110,6 @@ else
 
             EmpObj = await Task.Run(() => employeesService.GetAllEmployees());
     }
-
 
     private void Print()
         {

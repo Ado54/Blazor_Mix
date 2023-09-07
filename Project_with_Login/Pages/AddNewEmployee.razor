@@ -7,7 +7,7 @@
 <h3>Add New Employee</h3>
 <hr />
 
-<EditForm Model="model" >
+<EditForm Model="model" OnSubmit="@CreateNewEmployee" >
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -15,47 +15,47 @@
         <div class="col-md-8">
             <div class="for-group">
                 <label for="FirstName" class="control-label">First Name</label>
-                <InputText class="form-control" placeholder="First Name" @bind-Value="@obj.FirstName" />           
+                <InputText required id="1" class="form-control" placeholder="First Name" @bind-Value="@obj.FirstName" />
             </div>
             <div class="for-group">
                 <label for="MiddleName" class="control-label">Middle Name</label>
-                <InputText for="Middle Name" class="form-control" placeholder="Middle Name" @bind-Value="@obj.MiddleName" />                
+                <InputText required id="1" for="Middle Name" class="form-control" placeholder="Middle Name" @bind-Value="@obj.MiddleName" />
             </div>
             <div class="for-group">
                 <label for="LastName" class="control-label">Last Name</label>
-                <InputText placeholder="LastName" for="Last Name" class="form-control" @bind-Value="@obj.LastName" />           
+                <InputText required id="1" placeholder="LastName" for="Last Name" class="form-control" @bind-Value="@obj.LastName" />
             </div>
             <div class="for-group">
                 <label for="Email" class="control-label">Email</label>
-                <InputText placeholder="Email" for="Email" class="form-control" @bind-Value="@obj.EmailAddress" />          
+                <InputText required id="1" placeholder="Email" for="Email" class="form-control" @bind-Value="@obj.EmailAddress" />
             </div>
             <div class="for-group">
                 <label for="PhoneNumber" class="control-label">Phone Number</label>
-                <InputText placeholder="PhoneNumber" for="PhoneNumber" class="form-control" @bind-Value="@obj.PhoneNumber" />         
+                <InputText required id="1" placeholder="PhoneNumber" for="PhoneNumber" class="form-control" @bind-Value="@obj.PhoneNumber" />
             </div>
             <div class="for-group">
                 <label for="PostalCode" class="control-label">Postal Code</label>
-                <InputText placeholder="PostalCode" for="PostalCode" class="form-control" @bind-Value="@obj.PostalCode" />
+                <InputText required id="1" placeholder="PostalCode" for="PostalCode" class="form-control" @bind-Value="@obj.PostalCode" />
             </div>
             <div class="for-group">
                 <label for="Address" class="control-label">Address</label>
-                <InputText placeholder="Address" for="Address" class="form-control" @bind-Value="@obj.Address" />
+                <InputText required id="1" placeholder="Address" for="Address" class="form-control" @bind-Value="@obj.Address" />
             </div>
             <div class="for-group">
                 <label for="City" class="control-label">City</label>
-                <InputText placeholder="City" for="City" class="form-control" @bind-Value="@obj.City" />
+                <InputText required id="1" placeholder="City" for="City" class="form-control" @bind-Value="@obj.City" />
             </div>
             <div class="for-group">
                 <label for="Designation" class="control-label">Designation</label>
-                <InputText placeholder="Designation" for="Designation" class="form-control" @bind-Value="@obj.Designation" />
+                <InputText required id="1" placeholder="Designation" for="Designation" class="form-control" @bind-Value="@obj.Designation" />
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <button class="btn btn-primary btn-sm btn-continue" data-step="3" @onsubmit="@CreateNewEmployee">Save Employeee</button>
-                <input type="submit" class="btn btn-primary" @onclick="@CreateNewEmployee" value="Save Employee" />
+                <br />
+                <button type="submit" class="btn btn-primary">Save Employee</button>
                 <input type="button" class="btn btn-danger" @onclick="@Cancel" value="Cancel" />
             </div>
         </div>

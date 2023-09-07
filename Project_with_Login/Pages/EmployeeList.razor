@@ -7,7 +7,7 @@
 <AuthorizeView>
     <Authorized>
 
-<NavLink class="nav-link" href="AddNewEmployee">
+        <NavLink class="nav-link hideWhenPrint" href="AddNewEmployee">
     <span class="oi oi-plus" aria-hidden="true">Add New Employee</span>
 
 </NavLink>
@@ -19,6 +19,8 @@
 }
 else
 {
+            <input class="form-control hideWhenPrint" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+
     <table class="table">
         <thead>
             <tr>
@@ -37,10 +39,10 @@ else
                 <th>
                     Phone Number
                 </th>
-                <th>
+                <th class="hideWhenPrint">
                     Edit
                 </th>
-                <th>
+                <th class="hideWhenPrint">
                     Delete
                 </th>
             </tr>
@@ -48,7 +50,9 @@ else
         <tbody>
             @foreach (var emp in EmpObj)
             {
-                <tr>
+                        if (!IsVisible(emp))
+                            continue;
+                        <tr>
                     <td>
                         @emp.Id
                     </td>
@@ -65,48 +69,53 @@ else
                         @emp.PhoneNumber
                     </td>
                     <td>
-                        <a class="nav-link btn btn-primary" href="EditEmployee/@emp.Id">
+                            <a class="nav-link btn btn-primary hideWhenPrint" href="EditEmployee/@emp.Id">
                             <span class="oi oi-pencil" aria-hidden="true">Edit</span>
                         </a>
                     </td>
                     <td>
-                        <a class="nav-link btn btn-danger" href="DeleteEmployee/@emp.Id">
+                            <a class="nav-link btn btn-danger hideWhenPrint" href="DeleteEmployee/@emp.Id">
                             <span class="oi oi-trash" aria-hidden="true">Delete</span>
                         </a>
                     </td>
                 </tr>
-            }
+            }              
         </tbody>
     </table>
 }
 
+        <button class="btn-danger hideWhenPrint" @onclick="Print" style="margin-bottom:10px;">Print</button>
+        @code {
 
-<a href="#" class="btn btn-primary" @onclick="@(p => ClickCreateFile(1, "firstpage.pdf"))">Download</a>
-<button type="button" class="btn btn-warning" @onclick="@(p => ClickOpenNewTab(1, "text.pdf"))">NewTab</button>
+            public string Filter { get; set; }
 
-@code {
-   
-    List<Employee> EmpObj;
+            List<Employee> EmpObj;
+
+            public bool IsVisible(Employee employee)
+        {
+            if (string.IsNullOrEmpty(Filter))
+                return true;
+
+            if (employee.FirstName.Contains(Filter, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (employee.LastName.Contains(Filter, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            return false;
+        }
+
     protected override async Task OnInitializedAsync()
     {
 
-        EmpObj = await Task.Run(() => employeesService.GetAllEmployees());
-    }
-
-    private void ClickCreateFile(int pagetype, string filename)
-    {
-        var pdf = new Project_with_Login.PDF.Report();
-        pdf.Generate(js, pagetype, filename);
+            EmpObj = await Task.Run(() => employeesService.GetAllEmployees());
     }
 
 
-
-    private void ClickOpenNewTab(int pagetype, string filename)
-    {
-        var pdf = new Project_with_Login.PDF.Report();
-        pdf.OpenNewTab(js, pagetype, filename);
-    }
-
+    private void Print()
+        {
+            js.InvokeVoidAsync("Print");
+        }     
 }
 </Authorized>
 </AuthorizeView>

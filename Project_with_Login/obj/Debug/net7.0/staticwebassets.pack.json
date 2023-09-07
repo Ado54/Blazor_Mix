@@ -73,6 +73,34 @@
       "PackagePath": "staticwebassets\\images\\user_login.png"
     },
     {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\jquery\\jquery.js",
+      "PackagePath": "staticwebassets\\jquery\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\jquery\\jquery.min.map",
+      "PackagePath": "staticwebassets\\jquery\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\jquery\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\jquery\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\jquery\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\jquery\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\jquery\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\jquery\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\js\\myJS.js",
+      "PackagePath": "staticwebassets\\js\\myJS.js"
+    },
+    {
       "Id": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\wwwroot\\js\\pdfAction.js",
       "PackagePath": "staticwebassets\\js\\pdfAction.js"
     },

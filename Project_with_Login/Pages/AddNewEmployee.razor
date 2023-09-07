@@ -7,35 +7,31 @@
 <h3>Add New Employee</h3>
 <hr />
 
-<EditForm Model="model">
+<EditForm Model="model" >
     <DataAnnotationsValidator />
     <ValidationSummary />
+
     <div class="row">
         <div class="col-md-8">
             <div class="for-group">
                 <label for="FirstName" class="control-label">First Name</label>
-                <InputText class="form-control" placeholder="First Name" @bind-Value="@obj.FirstName" />
-                <ValidationMessage For="() => obj.FirstName" />
+                <InputText class="form-control" placeholder="First Name" @bind-Value="@obj.FirstName" />           
             </div>
             <div class="for-group">
                 <label for="MiddleName" class="control-label">Middle Name</label>
-                <InputText for="Middle Name" class="form-control" placeholder="Middle Name" @bind-Value="@obj.MiddleName" />
-                <ValidationMessage For="() => obj.MiddleName" />
+                <InputText for="Middle Name" class="form-control" placeholder="Middle Name" @bind-Value="@obj.MiddleName" />                
             </div>
             <div class="for-group">
                 <label for="LastName" class="control-label">Last Name</label>
-                <InputText placeholder="LastName" for="Last Name" class="form-control" @bind-Value="@obj.LastName" />
-                <ValidationMessage For="() => obj.LastName" />
+                <InputText placeholder="LastName" for="Last Name" class="form-control" @bind-Value="@obj.LastName" />           
             </div>
             <div class="for-group">
                 <label for="Email" class="control-label">Email</label>
-                <InputText placeholder="Email" for="Email" class="form-control" @bind-Value="@obj.EmailAddress" />
-                <ValidationMessage For="() => obj.PhoneNumber" />
+                <InputText placeholder="Email" for="Email" class="form-control" @bind-Value="@obj.EmailAddress" />          
             </div>
             <div class="for-group">
                 <label for="PhoneNumber" class="control-label">Phone Number</label>
-                <InputText placeholder="PhoneNumber" for="PhoneNumber" class="form-control" @bind-Value="@obj.PhoneNumber" />
-                <ValidationMessage For="() => obj.PhoneNumber" />
+                <InputText placeholder="PhoneNumber" for="PhoneNumber" class="form-control" @bind-Value="@obj.PhoneNumber" />         
             </div>
             <div class="for-group">
                 <label for="PostalCode" class="control-label">Postal Code</label>
@@ -58,9 +54,8 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-
-
-                <input type="submit" class="btn btn-primary" @onsubmit="@CreateNewEmployee" value="Save Employee" />
+                <button class="btn btn-primary btn-sm btn-continue" data-step="3" @onsubmit="@CreateNewEmployee">Save Employeee</button>
+                <input type="submit" class="btn btn-primary" @onclick="@CreateNewEmployee" value="Save Employee" />
                 <input type="button" class="btn btn-danger" @onclick="@Cancel" value="Cancel" />
             </div>
         </div>
@@ -69,10 +64,10 @@
 
 @code {
     Employee obj = new Employee();
- 
+
     Employee model = new();
 
-   
+
     protected async void CreateNewEmployee()
     {
 
@@ -83,8 +78,8 @@
     {
         NavigationManager.NavigateTo("Employees");
     }
+   
 
-    
 }
 
 

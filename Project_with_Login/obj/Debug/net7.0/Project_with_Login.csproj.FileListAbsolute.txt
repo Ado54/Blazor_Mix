@@ -386,3 +386,5 @@ C:\Users\adnan.hodzic\source\repos\Project_with_Login\Project_with_Login\bin\Deb
 C:\Users\adnan.hodzic\source\repos\Project_with_Login\Project_with_Login\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 C:\Users\adnan.hodzic\source\repos\Project_with_Login\Project_with_Login\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
 C:\Users\adnan.hodzic\source\repos\Project_with_Login\Project_with_Login\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\adnan.hodzic\source\repos\Project_with_Login\Project_with_Login\bin\Debug\net7.0\QRCoder.dll
+C:\Users\adnan.hodzic\source\repos\Project_with_Login\Project_with_Login\bin\Debug\net7.0\libman.json

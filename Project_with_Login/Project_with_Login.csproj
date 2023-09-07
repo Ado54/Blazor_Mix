@@ -25,6 +25,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+    <PackageReference Include="QRCoderNetCore" Version="1.0.0" />
     <PackageReference Include="Stimulsoft.Reports.Blazor" Version="2023.3.2" />
     <PackageReference Include="Syncfusion.Blazor.BarcodeGenerator" Version="22.2.10" />
     <PackageReference Include="Syncfusion.Blazor.Grid" Version="22.2.10" />

@@ -1,21 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NuGet.Packaging.Signing;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project_with_Login.Data
 {
     public class Employee
     {
-      
+        
+        [Key]      
         public int Id { get; set; }
 
 
-        [Required, MinLength(1), MaxLength(50)]
+        [Required]
         public string FirstName { get; set; }
         [Required]
 
         public string MiddleName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
+       
         public string FullName => $"{FirstName} {MiddleName} {LastName}";
         [Required]
         public string PostalCode { get; set; }

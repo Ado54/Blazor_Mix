@@ -88,6 +88,10 @@
               "target": "Package",
               "version": "[7.0.9, )"
             },
+            "QRCoderNetCore": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Stimulsoft.Reports.Blazor": {
               "target": "Package",
               "version": "[2023.3.2, )"

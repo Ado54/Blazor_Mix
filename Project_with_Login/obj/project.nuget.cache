@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UpO29Hd+IyNg6E6q9PPb+/7K7TTKvmDa2D9X39alvkBs13vRYY59S2ZtlPsjtv2AaSVEZOHiywA2hpiv2DSdSA==",
+  "dgSpecHash": "p7S+GbYcJIiAmv8/s/cEIeck6UYW5appXOErUjRNscquTRcvC4QfEpnQQON/51hEVOFkX2lNm8TxVyUPYcSa9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\adnan.hodzic\\source\\repos\\Project_with_Login\\Project_with_Login\\Project_with_Login.csproj",
   "expectedPackageFiles": [
@@ -166,6 +166,7 @@
     "C:\\Users\\adnan.hodzic\\.nuget\\packages\\nuget.projectmodel\\6.6.1\\nuget.projectmodel.6.6.1.nupkg.sha512",
     "C:\\Users\\adnan.hodzic\\.nuget\\packages\\nuget.protocol\\6.6.1\\nuget.protocol.6.6.1.nupkg.sha512",
     "C:\\Users\\adnan.hodzic\\.nuget\\packages\\nuget.versioning\\6.6.1\\nuget.versioning.6.6.1.nupkg.sha512",
+    "C:\\Users\\adnan.hodzic\\.nuget\\packages\\qrcodernetcore\\1.0.0\\qrcodernetcore.1.0.0.nupkg.sha512",
     "C:\\Users\\adnan.hodzic\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\adnan.hodzic\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\adnan.hodzic\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

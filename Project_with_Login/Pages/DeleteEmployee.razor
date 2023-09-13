@@ -10,9 +10,18 @@
 <h2>Delete Employee</h2>
 <hr />
 
-<form>
+
+       
+@if (obj.Department == null)
+        {
+            <p><em>Loading..............</em></p>
+        }
+        else
+        {
+        <form>
     <div class="row">
         <div class="col-md-8">
+         
             <div class="form-group">
                 <label for="Id" class="control-label">Employee Id:</label>
                 <label>@obj.Id</label>
@@ -53,8 +62,13 @@
                 <label for="Designation" class="control-label">Designation:</label>
                 <label>@obj.Designation</label>
             </div>
+                    <div class="for-group">
+                        <label for="Department" class="control-label">Department:</label>
+                        <label>@obj.Department.Name</label>
+                    </div>
         </div>
     </div>
+                
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -65,11 +79,14 @@
         </div>
     </div>
 </form>
-
+                    }
+        
 @code {
     [Parameter]
     public string Id { get; set; }
     Employee obj = new Employee();
+        List<Employee> EmpObj;
+        
     protected override async Task OnInitializedAsync()
     {
         obj = await Task.Run(() => employeeService.GetEmployeeById(Convert.ToInt32(Id)));
@@ -83,6 +100,8 @@
     {
         NavigationManager.NavigateTo("Employees");
     }
+
+    
 }
 
     </Authorized>

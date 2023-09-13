@@ -1,8 +1,10 @@
 ﻿@page "/AddNewEmployee"
 @using System.ComponentModel.DataAnnotations
 @using Project_with_Login.Data
-@inject EmployeeService employeeService
+@inject EmployeeService employeesService
 @inject NavigationManager NavigationManager
+
+
 
 <h3>Add New Employee</h3>
 <hr />
@@ -10,7 +12,6 @@
 <EditForm Model="model" OnSubmit="@CreateNewEmployee" >
     <DataAnnotationsValidator />
     <ValidationSummary />
-
     <div class="row">
         <div class="col-md-8">
             <div class="for-group">
@@ -49,6 +50,14 @@
                 <label for="Designation" class="control-label">Designation</label>
                 <InputText required id="1" placeholder="Designation" for="Designation" class="form-control" @bind-Value="@obj.Designation" />
             </div>
+            <div class="for-group">
+                <label required id="1" for="Department" class="control-label" placeholder="Choose a Department">Department</label>
+         
+                <InputSelect @bind-Value="obj.DepartmentId" class="form-control">
+                        <option value="1">IT</option>
+                            <option value="2">Call Center</option>
+            </InputSelect>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -60,26 +69,23 @@
             </div>
         </div>
     </div>
+   
 </EditForm>
+
 
 @code {
     Employee obj = new Employee();
-
     Employee model = new();
-
 
     protected async void CreateNewEmployee()
     {
-
-        await employeeService.AddNeEmployee(obj);
+        await employeesService.AddNeEmployee(obj);
         NavigationManager.NavigateTo("Employees");
     }
     protected async void Cancel()
     {
         NavigationManager.NavigateTo("Employees");
     }
-   
-
 }
 
 

@@ -10,6 +10,7 @@ using Project_with_Login.Data;
 using Project_with_Login.Hubs;
 using Project_with_Login.Models;
 using Syncfusion.Blazor;
+
 using static System.Formats.Asn1.AsnWriter;
 
 
@@ -33,8 +34,9 @@ builder.Services.AddScoped<ILibraryService, LibraryService>();
 builder.Services.AddDbContext<TestContext>(option =>
                 option.UseSqlServer(builder.Configuration.GetConnectionString("LibraryDatabase")));
 
-
+builder.Services.AddScoped<Employee_DepNameService>();
 builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddScoped<ContactService>();
 
 builder.Services.AddResponseCompression(opts => { opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/octet-stream" });
 });

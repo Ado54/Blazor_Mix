@@ -17,7 +17,7 @@ namespace Project_with_Login.Data
         public async Task<List<Employee>> GetAllEmployees()
         {
             return await _applicationDbContext.Employees.ToListAsync();
-
+              
         }
 
         //Add New Employee Record
@@ -32,8 +32,10 @@ namespace Project_with_Login.Data
         //Get Employee Record By Id
         public async Task<Employee> GetEmployeeById(int id)
         {
-            Employee employee = await _applicationDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
-            return employee;
+            return await _applicationDbContext.Employees
+                .Include(e => e.Department)
+                .FirstOrDefaultAsync(e => e.Id == id);
+            
 
         }
         //Update Employee Data

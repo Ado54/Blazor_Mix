@@ -1,19 +1,20 @@
 ﻿@page "/Employees"
 
 @using Project_with_Login.Data
-@inject EmployeeService employeesService
+@inject Employee_DepNameService employeeDepNameService
 @inject IJSRuntime js
 
 <AuthorizeView>
     <Authorized>
 
         <NavLink class="nav-link hideWhenPrint" href="AddNewEmployee">
-    <span class="oi oi-plus" aria-hidden="true">Add New Employee</span>
+            <span class="oi oi-plus" aria-hidden="true">Add New Employee</span>
 
-</NavLink>
-<h3>EmployeeList</h3>
+        </NavLink>
+        <h3>EmployeeList</h3>
 
-@if (EmpObj is null)
+
+@if (EmpDepObj is null)
 {
     <p><em>Loading..............</em></p>
 }
@@ -25,9 +26,6 @@ else
         <thead>
             <tr>
                 <th>
-                    Emp No
-                </th>
-                <th>
                     Employee Name
                 </th>
                 <th>
@@ -37,28 +35,31 @@ else
                     Designation
                 </th>
                 <th>
-                    Phone Number
+                    PhoneNumber
                 </th>
-                <th class="hideWhenPrint">
+                <th>
+                    Department Name
+                </th>
+                        <th class="hideWhenPrint" style="width:8%;">
+                            More Info
+                        </th>
+                        <th class="hideWhenPrint" style="width:8%;">
                     Edit
                 </th>
-                <th class="hideWhenPrint">
+                        <th class="hideWhenPrint" style="width:8%;">
                     Delete
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var emp in EmpObj)
+            @foreach (var emp in EmpDepObj)
             {
                         if (!IsVisible(emp))
                             continue;
-                        <tr>
+                    <tr>
                     <td>
-                        @emp.Id
-                    </td>
-                    <td>
-                        @emp.FullName
-                    </td>
+                    @emp.FirstName  @emp.LastName
+                    </td>             
                     <td>
                         @emp.EmailAddress
                     </td>
@@ -68,6 +69,14 @@ else
                     <td>
                         @emp.PhoneNumber
                     </td>
+                    <td>
+                        @emp.DepartmentName
+                    </td>                         
+                            <td>
+                                <a class="nav-link btn btn-primary hideWhenPrint" href="More_Info/@emp.Id">
+                                    <span class="oi oi-pencil" aria-hidden="true">More Info</span>
+                                </a>
+                            </td>
                     <td>
                             <a class="nav-link btn btn-primary hideWhenPrint" href="EditEmployee/@emp.Id">
                             <span class="oi oi-pencil" aria-hidden="true">Edit</span>
@@ -83,15 +92,14 @@ else
         </tbody>
     </table>
 }
-
-        <button class="btn-danger hideWhenPrint" @onclick="Print" style="margin-bottom:10px;">Print</button>
+        <input type="button" class="btn btn-primary hideWhenPrint" @onclick="@Print" value="Print" />
         @code {
 
             public string Filter { get; set; }
 
-            List<Employee> EmpObj;
+        private IEnumerable<Employee_DepName> EmpDepObj;
 
-            public bool IsVisible(Employee employee)
+            public bool IsVisible(Employee_DepName employee)
         {
             if (string.IsNullOrEmpty(Filter))
                 return true;
@@ -101,15 +109,12 @@ else
 
             if (employee.LastName.Contains(Filter, StringComparison.OrdinalIgnoreCase))
                 return true;
-
-            return false;
+                return false;
         }
-
-    protected override async Task OnInitializedAsync()
-    {
-
-            EmpObj = await Task.Run(() => employeesService.GetAllEmployees());
-    }
+        protected override async Task OnInitializedAsync()
+        {
+            EmpDepObj = await employeeDepNameService.GetEmployeeAsync();
+        }
 
     private void Print()
         {

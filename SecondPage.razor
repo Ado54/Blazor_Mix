@@ -1,0 +1,17 @@
+﻿@page "/page2/{age}"
+
+<AuthorizeView>
+    <Authorized>
+
+<h3>Second Page</h3>
+
+<p>You are @Age years old.</p>
+
+@code {
+    [Parameter]
+    public string Age { get; set; }
+
+}
+
+    </Authorized>
+</AuthorizeView>

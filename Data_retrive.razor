@@ -1,0 +1,28 @@
+﻿@page "/Data_retrive"
+<AuthorizeView>
+    <Authorized>
+<p>
+    <input @bind="inputValue" />
+</p>
+
+<p>
+    <input @bind="InputValue1" />
+ 
+</p>
+
+<ul>
+    <li><code>inputValue</code>: @inputValue</li>
+    <li><code>InputValue</code>: @InputValue1</li>
+</ul>
+
+@code {
+    private string? inputValue;
+
+    private string? InputValue { get; set; }
+
+    private string? inputValue1;
+    private string? InputValue1 { get; set; }
+
+}
+</Authorized>
+</AuthorizeView>

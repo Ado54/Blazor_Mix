@@ -1,0 +1,125 @@
+﻿@page "/Employees"
+
+@using Project_with_Login.Data
+@inject Employee_DepNameService employeeDepNameService
+@inject IJSRuntime js
+
+<AuthorizeView>
+    <Authorized>
+
+        <NavLink class="nav-link hideWhenPrint" href="AddNewEmployee">
+            <span class="oi oi-plus" aria-hidden="true">Add New Employee</span>
+
+        </NavLink>
+        <h3>EmployeeList</h3>
+
+
+@if (EmpDepObj is null)
+{
+    <p><em>Loading..............</em></p>
+}
+else
+{
+            <input class="form-control hideWhenPrint" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Employee Name
+                </th>
+                <th>
+                    Email Address
+                </th>
+                <th>
+                    Designation
+                </th>
+                <th>
+                    PhoneNumber
+                </th>
+                <th>
+                    Department Name
+                </th>
+                        <th class="hideWhenPrint" style="width:8%;">
+                            More Info
+                        </th>
+                        <th class="hideWhenPrint" style="width:8%;">
+                    Edit
+                </th>
+                        <th class="hideWhenPrint" style="width:8%;">
+                    Delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in EmpDepObj)
+            {
+                        if (!IsVisible(emp))
+                            continue;
+                    <tr>
+                    <td>
+                    @emp.FirstName  @emp.LastName
+                    </td>             
+                    <td>
+                        @emp.EmailAddress
+                    </td>
+                    <td>
+                        @emp.Designation
+                    </td>
+                    <td>
+                        @emp.PhoneNumber
+                    </td>
+                    <td>
+                        @emp.DepartmentName
+                    </td>                         
+                            <td>
+                                <a class="nav-link btn btn-primary hideWhenPrint" href="More_Info/@emp.Id">
+                                    <span class="oi oi-pencil" aria-hidden="true">More Info</span>
+                                </a>
+                            </td>
+                    <td>
+                            <a class="nav-link btn btn-primary hideWhenPrint" href="EditEmployee/@emp.Id">
+                            <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                        </a>
+                    </td>
+                    <td>
+                            <a class="nav-link btn btn-danger hideWhenPrint" href="DeleteEmployee/@emp.Id">
+                            <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            }              
+        </tbody>
+    </table>
+}
+        <input type="button" class="btn btn-primary hideWhenPrint" @onclick="@Print" value="Print" />
+        @code {
+
+            public string Filter { get; set; }
+
+        private IEnumerable<Employee_DepName> EmpDepObj;
+
+            public bool IsVisible(Employee_DepName employee)
+        {
+            if (string.IsNullOrEmpty(Filter))
+                return true;
+
+            if (employee.FirstName.Contains(Filter, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (employee.LastName.Contains(Filter, StringComparison.OrdinalIgnoreCase))
+                return true;
+                return false;
+        }
+        protected override async Task OnInitializedAsync()
+        {
+            EmpDepObj = await employeeDepNameService.GetEmployeeAsync();
+        }
+
+    private void Print()
+        {
+            js.InvokeVoidAsync("Print");
+        }     
+}
+</Authorized>
+</AuthorizeView>

@@ -1,0 +1,44 @@
+﻿@page "/reportviewer"
+
+@using Project_with_Login.PDF
+@using Project_with_Login.Models
+
+@inject IJSRuntime js
+<AuthorizeView>
+    <Authorized>
+<div class="container">
+    <div class="row">
+        <div class="col ">
+            <div class="card h-100">
+                <h5 class="card-header">Text & Paragraphe</h5>
+                <div class="card-body">
+                    <p class="card-text">A single page with text</p>
+                    <a href="#" class="btn btn-primary" @onclick="@(p => ClickCreateFile(1, "example.pdf"))">Download</a>
+                    <button type="button" class="btn btn-warning" @onclick="@(p => ClickOpenNewTab(1, "text.pdf"))">NewTab</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+
+    int age = 5;
+
+    private void ClickCreateFile(int pagetype, string filename)
+    {
+        var pdf = new Project_with_Login.PDF.Report();
+        pdf.Generate(js, pagetype, filename);
+    }
+
+
+
+    private void ClickOpenNewTab(int pagetype, string filename)
+    {
+        var pdf = new Project_with_Login.PDF.Report();
+        pdf.OpenNewTab(js, pagetype, filename);
+    }
+} 
+</Authorized>
+</AuthorizeView>

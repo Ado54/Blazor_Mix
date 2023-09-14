@@ -1,0 +1,103 @@
+﻿@page "/More_Info/{Id}"
+
+@using Project_with_Login.Data
+@using System.IO
+
+@inject EmployeeService employeeService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime js
+
+<AuthorizeView>
+    <Authorized>
+
+<h2>Employee Info</h2>
+<hr />
+@if (obj.Department == null)
+        {
+            <p><em>Loading..............</em></p>
+        }
+        else
+        {
+        <form>
+    <div class="row">
+        <div class="col-md-8">
+              
+            <div class="form-group">
+
+            <label for="Id" class="p3">Employee Id:</label>
+            <label class="p3">@obj.Id</label>
+            </div>
+            <div class="for-group">
+            <label for="FirstName" class="p3">First Name:</label>
+            <label class="p3">@obj.FirstName</label>
+            </div>
+            <div class="for-group">
+            <label for="MiddleName" class="p3">Middle Name:</label>
+            <label class="p3">@obj.MiddleName</label>
+            </div>
+            <div class="for-group">
+            <label for="LastName" class="p3">Last Name:</label>
+            <label class="p3">@obj.LastName</label>
+            </div>
+            <div class="for-group">
+            <label for="Email" class="p3">Email:</label>
+            <label class="p3">@obj.EmailAddress</label>
+            </div>
+            <div class="for-group">
+            <label for="PhoneNumber" class="p3">Phone Number:</label>
+            <label class="p3">@obj.PhoneNumber</label>
+            </div>
+            <div class="for-group">
+            <label for="PostalCode" class="p3">Postal Code:</label>
+            <label class="p3">@obj.PostalCode</label>
+            </div>
+            <div class="for-group">
+            <label for="Address" class="p3">Address:</label>
+            <label class="p3">@obj.Address</label>
+            </div>
+            <div class="for-group">
+             <label for="City" class="p3">City:</label>
+             <label class="p3">@obj.City</label>
+            </div>
+            <div class="for-group">
+            <label for="Designation" class="p3">Designation:</label>
+            <label class="p3">@obj.Designation</label>
+            </div>
+                    <div class="for-group">
+                                <label for="Department" class="p3">Department:</label>
+                        <label class="p3">@obj.Department.Name</label>
+                    </div>      
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <br />
+                <input type="button" class="btn btn-primary hideWhenPrint" @onclick="@Print" value="Print" />
+                            <input type="button" class="btn btn-primary hideWhenPrint" @onclick="@Cancel" value="Cancel" />
+                            </div>
+            </div>
+    </div>
+</form>
+        }
+        @code {
+
+    [Parameter]
+    public string Id { get; set; }
+    Employee obj = new Employee();
+    protected override async Task OnInitializedAsync()
+    {
+        obj = await Task.Run(() => employeeService.GetEmployeeById(Convert.ToInt32(Id)));
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("Employees");
+    }
+        private void Print()
+        {
+            js.InvokeVoidAsync("Print");
+        }
+        }
+
+    </Authorized>
+    </AuthorizeView>

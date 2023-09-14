@@ -1,0 +1,70 @@
+﻿@page "/InsertData"
+@using System.ComponentModel.DataAnnotations
+@using Project_with_Login.Data
+@inject ContactService contactService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h3>Add New Contact</h3>
+<hr />
+
+<EditForm Model="model" OnSubmit="@CreateNewContact">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-md-8">
+        
+            <div class="for-group">
+                <label for="FirstName" class="control-label">First Name</label>
+                <InputText required id="1" class="form-control" placeholder="First Name" @bind-Value="@obj.First_Name" />
+            </div>
+            <div class="for-group">
+                <label for="LastName" class="control-label">Last Name</label>
+                <InputText required id="1" placeholder="LastName" for="Last Name" class="form-control" @bind-Value="@obj.Last_Name" />
+            </div>
+            <div class="for-group">
+                <label for="Email" class="control-label">Email</label>
+                <InputText required id="1" placeholder="Email" for="Email" class="form-control" @bind-Value="@obj.Telefon_Nummer" />
+            </div>           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <br />
+                <button type="submit" class="btn btn-primary">Save Contact</button>
+                <input type="button" class="btn btn-danger" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+
+</EditForm>
+
+
+@code {
+    Contact obj = new Contact();
+    Contact model = new();
+
+
+    protected async void CreateNewContact()
+    {
+     bool confirmed = await JsRuntime.InvokeAsync<bool>("Confirm", "Are you sure?"); // Confirm
+        if (confirmed == false)
+        {
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            await contactService.AddNewContact(obj);
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    protected async void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}
+
+
+
+

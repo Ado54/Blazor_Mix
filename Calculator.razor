@@ -1,0 +1,29 @@
+﻿@page "/calculator"
+<AuthorizeView>
+    <Authorized>
+<h3>Simple Calculator</h3>
+
+
+<label for="number1" style="font-family:Calibri;font-size:18px">Number 1:</label>
+<input type="number" @bind="@num1" />
+<br>
+<label for="number2" style="font-family:Calibri;font-size:18px">Number 2:</label>
+<input type="number" @bind="@num2" />
+<br>
+<br>
+<button class="btn btn-primary" @onclick="@Sum">Calculate sum</button>
+<br>
+<h2>Sum: @sum</h2>
+
+@code {
+    decimal sum = 0;
+    decimal num1 = 0;
+    decimal num2 = 0;
+
+    public void Sum()
+    {
+        sum = num1 + num2;
+    }
+}
+</Authorized>
+</AuthorizeView>
